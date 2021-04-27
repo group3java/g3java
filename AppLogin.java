@@ -16,11 +16,12 @@ public class AppLogin implements ActionListener {
 	private static JButton button;
 	private static JLabel submit;
 	
-	public static void main(String[] args) {
+	AppLogin(){
 
 		JPanel panel = new JPanel();
 		JFrame frame = new JFrame();
 		frame.setSize(600, 400);
+		frame.setTitle("Login Page");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
@@ -37,7 +38,7 @@ public class AppLogin implements ActionListener {
 		
 		button = new JButton("Submit");
 		button.setBounds(150, 160, 80, 25);
-		button.addActionListener(new AppLogin());
+		button.addActionListener(this);
 		panel.add(button);
 		
 		submit = new JLabel("");
@@ -49,15 +50,15 @@ public class AppLogin implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String masterKey = keyText.getText();
 		
+		String masterKey = keyText.getText();
 		//will be changed to equal randomly generated master key
 		if(masterKey.equals("MasterKey123")) {
 			submit.setText("Login Success"); //will direct user to application home page
+			HomePage homePage = new HomePage();
 		}
 		else {
 			submit.setText("Invalid Master Key");
 		}
 	}
-
 }
