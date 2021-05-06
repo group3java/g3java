@@ -9,17 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class AppLogin implements ActionListener {
+public class LoginPage implements ActionListener {
 
 	private static JLabel keyLabel;
 	private static JTextField keyText;
 	private static JButton button;
 	private static JLabel submit;
 	
-	AppLogin(){
+	JFrame frame = new JFrame();
+	
+	LoginPage(){
 
 		JPanel panel = new JPanel();
-		JFrame frame = new JFrame();
+		
 		frame.setSize(600, 400);
 		frame.setTitle("Login Page");
 		frame.setLocationRelativeTo(null);
@@ -52,9 +54,10 @@ public class AppLogin implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		String masterKey = keyText.getText();
-		//will be changed to equal randomly generated master key
+		//will be changed to equal user's master key
 		if(masterKey.equals("MasterKey123")) {
-			submit.setText("Login Success"); //will direct user to application home page
+			submit.setText("Login Success");
+			frame.dispose(); //close login page if master key is correct
 			HomePage homePage = new HomePage();
 		}
 		else {
