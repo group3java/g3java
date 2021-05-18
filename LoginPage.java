@@ -1,13 +1,14 @@
-//GUI for Password Manager Login Page (Demo1)
-//Created by Victor Teas
+// GUI for Password Manager Login Page (Demo1)
+// Created by Victor Teas
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JButton;
+
 
 public class LoginPage implements ActionListener {
 
@@ -54,11 +55,11 @@ public class LoginPage implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		String masterKey = keyText.getText();
-		//will be changed to equal user's master key
-		if(masterKey.equals("MasterKey123")) {
+		// will be changed to equal user's master key
+		if(masterKey.equals("MK123")) {
 			submit.setText("Login Success");
-			frame.dispose(); //close login page if master key is correct
-			HomePage homePage = new HomePage();
+			frame.dispose(); // close login page if master key is correct
+			HomePage homePage = new HomePage(); // open home page if master key is correct
 		}
 		else {
 			submit.setText("Invalid Master Key");
