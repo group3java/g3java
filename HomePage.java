@@ -43,6 +43,7 @@ public class HomePage implements ActionListener {
 		
 		editButton = new JButton("Edit Entry");
 		editButton.setBounds(1000, 250, 120, 25);
+		editButton.addActionListener(this);
 		panel.add(editButton);
 		
 		deleteButton = new JButton("Delete Entry");
@@ -85,6 +86,11 @@ public class HomePage implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		AddEntry addEntry = new AddEntry();
-	} // will add action listeners for editButton and deleteButton
+		if (e.getSource() == addButton) {
+			AddEntry addEntry = new AddEntry();
+		}
+		else if (e.getSource() == editButton) {
+			EditEntry editEntry = new EditEntry();
+		} // will add action listener for deleteButton
+	}
 }
