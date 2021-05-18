@@ -24,9 +24,8 @@ public class EditEntry implements ActionListener {
 		frame = new JFrame();
 		panel = new JPanel();
 		frame.setSize(700, 500);
-		frame.setTitle("Password Manager");
+		frame.setTitle("Edit Entry");
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
 		panel.setLayout(null);
 		
