@@ -26,7 +26,7 @@ public class LoginPage implements ActionListener {
 		frame.setSize(600, 400);
 		frame.setTitle("Login Page");
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exits application when login page is closed
 		frame.add(panel);
 		
 		panel.setLayout(null);
@@ -54,9 +54,8 @@ public class LoginPage implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		String masterKey = keyText.getText();
-		// will be changed to equal user's master key
-		if(masterKey.equals("MK123")) {
+		String masterKey = keyText.getText(); // master key will be changed to encryption key in local storage file
+		if(masterKey.equals("MK123")) { // login successful if set master key "MK123" is submitted
 			submit.setText("Login Success");
 			frame.dispose(); // close login page if master key is correct
 			HomePage homePage = new HomePage(); // open home page if master key is correct

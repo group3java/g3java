@@ -31,7 +31,7 @@ public class HomePage implements ActionListener {
 		frame.setSize(1200, 800);
 		frame.setTitle("Password Manager");
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exits application when home page is closed
 		frame.add(panel);
 		
 		panel.setLayout(null);
@@ -48,6 +48,7 @@ public class HomePage implements ActionListener {
 		
 		deleteButton = new JButton("Delete Entry");
 		deleteButton.setBounds(1000, 350, 120, 25);
+		// will have action listener after UI creation
 		panel.add(deleteButton);
 		
 		searchEntry = new JLabel("Search");
@@ -56,9 +57,10 @@ public class HomePage implements ActionListener {
 		
 		searchBar = new JTextField(40);
 		searchBar.setBounds(800, 20, 350, 25);
+		// will have action listener when enter key is pressed
 		panel.add(searchBar);
 		
-		String[] columns = {"", ""};
+		String[] columns = {"", ""}; // two columns
 		entries = new JTable();
 		DefaultTableModel table = new DefaultTableModel();
 		table = new DefaultTableModel();
@@ -73,7 +75,7 @@ public class HomePage implements ActionListener {
 			reader = new BufferedReader(new FileReader(file));
 			while((line = reader.readLine()) != null) 
 			{
-				table.addRow(line.split(": "));
+				table.addRow(line.split(": ")); // splits labels and data into separate columns based on ": " from WriteToFile class
 				}
 			reader.close();
 			}
@@ -87,10 +89,10 @@ public class HomePage implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == addButton) {
-			AddEntry addEntry = new AddEntry();
+			AddEntry addEntry = new AddEntry(); // opens instance of AddEntry class
 		}
 		else if (e.getSource() == editButton) {
-			EditEntry editEntry = new EditEntry();
-		} // will add action listener for deleteButton
+			EditEntry editEntry = new EditEntry(); // opens instance of EditEntry class
+		} // will add action listeners for deleteButton and searchBar
 	}
 }
